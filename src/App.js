@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import MainForm from './MainForm';
+import LoginForm from './LoginForm';
+import Profile from './Profile';
+import Order from './Order';
+import Category from './Category';
+import Cart from './Cart';
 
 function App() {
+  const isLoggedIn = localStorage.getItem("userDetails");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          isLoggedIn ? <Navigate to="/mainForm" /> : <LoginForm />
+        }
+      />
+      <Route path="/mainForm" element={<MainForm />}>
+        <Route path="/mainForm/profile" element={<Profile />} />
+        <Route path="/mainForm/category" element={<Category />} />
+        <Route path="/mainForm/orders" element={<Order />} />
+        <Route path="/mainForm/cart" element={<Cart />} />
+      </Route>
+    </Routes>
   );
 }
 
