@@ -34,7 +34,7 @@ function MainForm(){
    return(
          <Nav>
             <NavList>
-               <NavItem onClick={()=>{navigate('/mainForm/profile')}}>Profile</NavItem>
+               <NavItem onClick={()=>{navigate('/mainForm/home')}}>Home</NavItem>
                <NavItem onClick={()=>{navigate('/mainForm/category')}}>Category</NavItem>
                <NavItem onClick={()=>{navigate('/mainForm/orders')}}>My Orders</NavItem>
                <NavItem onClick={()=>{navigate('/mainForm/cart')}}>Cart</NavItem>
