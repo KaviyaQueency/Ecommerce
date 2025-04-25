@@ -33,7 +33,7 @@ const Price = styled.div`
   color: #27ae60;
   font-weight: 500;
 `;
-
+//Card values passed dynamically
 const ProductCard = ({ image, title, price }) => {
   return (
     <Card>
